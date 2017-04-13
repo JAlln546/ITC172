@@ -1,0 +1,38 @@
+﻿* {
+    padding:0;
+    margin:0;
+}
+body {
+    background: #cff;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.result {
+    color:#808080;
+    font-weight:bold;
+    font-size:1.1em;
+    margin:10px;
+    text-align:center;
+}
+
+#centered {
+    width:500px;
+    margin:50px auto;
+    border:1px solid black;
+    padding:0 20px 20px 20px;
+    text-align:center;
+    background:#fff;
+    border-radius:10px;
+}
+
+.Calendar1 {
+    margin:0 auto;
+    width:100%;
+}
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    padding:10px;
+    color: #0cf;
+    background:#fff;
+}
