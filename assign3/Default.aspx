@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-            <h1>Log In</h1>
+        <h1>Log In</h1>
     <table>
         <tr>
             <td>User Name</td>
@@ -31,9 +31,9 @@
                 <asp:Label ID="ResultLabel" runat="server" Text=""></asp:Label> </td>
         </tr>
     </table>
-        <asp:LinkButton ID="LinkButton1" runat="server"
-            postBackUrl="register.aspx">Register</asp:LinkButton>
-    
+        <asp:LinkButton ID="LinkButton1" runat="server" 
+            PostBackUrl="Register.aspx">Register</asp:LinkButton>
+
     </div>
     </form>
 </body>
