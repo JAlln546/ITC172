@@ -6,10 +6,12 @@ using System.ServiceModel;
 using System.Text;
 
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
+
 public class BookReviewService : IBookReviewService
 {
     Community_AssistEntities db = new Community_AssistEntities();
   
+
 
     public List<Grants> GetGrantRequest(int Person)
     {
@@ -33,39 +35,39 @@ public class BookReviewService : IBookReviewService
         }
         return grants;
     }
-
-    public List<Grants> GetGrants(string GrantRequest)
-    {
-        throw new NotImplementedException();
-    }
-
-   
+    
 
 
     public bool RegisterPerson(PersonInfo r)
     {
-        throw new NotImplementedException();
+        bool result = true;
+        int rev = db.usp_Register(r.PersonLastName, r.PersonFirstName, r.PersonEmail, r.PersonPassWord, r.PersonApartmentNumber,
+            r.PersonStreet, r.PersonCity, r.PersonState, r.PersonZipcode, r.PersonHomePhone, r.PersonWorkPhone);
+
+        return result;
     }
+
 
     public bool newGrant(GrantRequest grequest, GrantReview greview)
     {
-        throw new NotImplementedException();
+        bool result = true;
+
+        try
+        {
+            db.GrantRequests.Add(grequest);
+            db.GrantReviews.Add(greview);
+            db.SaveChanges();
+        }
+
+        catch
+        {
+            result = false;
+        }
+
+        return result;
     }
-
-    //var grs = from a in db.GrantRequest
-    //              select a;
-    //    List<Grants> grants = new List<Grants>();
-    //    foreach(Grants gr in grs)
-    //    {
-    //        Grants grants1 = new Grants();
-    //        grants1.GrantRequestDate = gr.GrantRequestDate;
-    //        grants1.PersonKey = gr.PersonKey;
-    //        grants1.GrantTypeKey = gr.GrantTypeKey;      
-
-    //    }
-
-    //    return grants;
     
+
 
     public int Login(string email, string password)
     {
@@ -81,16 +83,5 @@ public class BookReviewService : IBookReviewService
         return key;
     }
 
-    public bool RegisterPerson(Person r)
-    {
-        throw new NotImplementedException();
-    }
 
-    //public bool RegisterReviewer(Reviewer r)
-    //{
-    //    bool result = true;
-    //    int rev = db.usp_NewReviewer(r.ReviewerUserName,
-    //        r.ReviewerFirstName, r.ReviewerLastName,
-    //        r.ReviewerEmail, r.ReviewPlainPassword);
-    //}
 }
